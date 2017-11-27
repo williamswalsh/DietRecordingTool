@@ -3,7 +3,7 @@ package main;
 import mvc.M;
 import mvc.V;
 import mvc.C;
-// Change 2
+
 /**
  * Title: Duke’s 2000 Calorie Daily Diet
  * 
