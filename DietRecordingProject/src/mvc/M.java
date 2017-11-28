@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class M {
@@ -135,10 +136,17 @@ public class M {
 		// 20171128_Meal + \\ + 20171128_MealDetails + .txt
 
 		try (FileWriter writer = new FileWriter(relativePathName); PrintWriter print = new PrintWriter(writer)) {
+			print.println("Meal Selection");
+			print.println(new Date());
+			print.println();
+			
 			for (int i = 0; i < M.getSelectedMeals().size(); i++) {
 				print.println(
 						M.getSelectedMeals().get(i).getName() + " - " + M.getSelectedMeals().get(i).getCalories());
 			}
+			print.println();
+			print.println(M.getSumOfCalories(M.getSelectedMeals()));
+			print.println("*********************Have a nice day**************************");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
