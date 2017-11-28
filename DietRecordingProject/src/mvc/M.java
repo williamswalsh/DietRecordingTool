@@ -43,8 +43,10 @@ public class M {
 	 * project folder. If the folder exists already it reports this to the user. If
 	 * the folder doesn't exist already it create the folder and reports this to the
 	 * user.
-	 * 
+	 * @author William Walsh
+	 * @exception IOException
 	 * @param folderName
+	 * @return void 
 	 */
 	public static void createFolderWithName(String folderName) {
 		Path path = Paths.get(folderName);
@@ -126,6 +128,7 @@ public class M {
 	 *            Name of folder in which to create file
 	 * @param directorySeparator
 	 *            Directory Separator which is specific to current OS
+	 * @return void 
 	 */
 	public static void saveMealsToFile(String fileName, String fileType, String folderName, String directorySeparator) {
 		String relativePathName = folderName + directorySeparator + fileName + fileType;
