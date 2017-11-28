@@ -63,6 +63,7 @@ public class M {
 		V.display("File is created in: " + folderName);
 		V.display("File is of type: " + fileType);
 		V.display("Using the directory separator: " + directorySeparator);
+		V.display("");
 	}
 	public static void saveMealsToFile(String fileName, String fileType, String folderName, String directorySeparator) {
 		String relativePathName = folderName + directorySeparator + fileName + fileType; 
