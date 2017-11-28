@@ -16,7 +16,7 @@ public class Main {
 		M.retrieveMenuMeals(); // Initialization
 
 		V.displayTitleMenu();
-		V.displayMeals(M.getMenuMeals()); // MVC not
+		V.displayMealsWithIndex(M.getMenuMeals()); // MVC not
 		// followed here V->M directly and not through C -> ASK PETE
 
 		boolean userWantsToPlay = true;

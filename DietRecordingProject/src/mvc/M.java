@@ -36,32 +36,46 @@ public class M {
 	// M.createFolder();// Create folder >> name >> todays date + Meal
 	// M.createTextFile();// Create textfile >> name >> todays date +
 	// MealDetails 20171123
-	public static void createFolder() {
-		String folderName = getDateString() + "_Meal";
+	public static void createFolderWithName(String folderName) {
 		Path path = Paths.get(folderName);
 
 		if (!Files.exists(path)) {
 			try {
 				Files.createDirectories(path);
+				V.display("Folder named: " + folderName + " was created.");
 			} catch (IOException e) { // How to handle this exception // Best recovery behaviour
 				e.printStackTrace();
 			}
 		} else {
 			V.display("Folder named: " + folderName + " already exists."); // Overwrite dialog appropriate here?
 		}
-		V.display("Folder named: " + folderName + " was created.");
 	}
 
-	public static void createAndPrintTextFile(String fileName) {
-
-		try (FileWriter writer = new FileWriter(fileName); PrintWriter print = new PrintWriter(writer)) {
-			for (int i = 0; i < M.getSelectedMeals().size(); i++) {
-				V.display(M.getSelectedMeals().get(i).getName() + " - " + M.getSelectedMeals().get(i).getCalories());
-			}
+	public static void createFile(String fileName, String fileType, String folderName, String directorySeparator) {
+		String relativePathName = folderName + directorySeparator + fileName + fileType; 
+								// 20171128_Meal + \ + 20171128_MealDetails + .txt
+		
+		try (FileWriter writer = new FileWriter(relativePathName)) {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		V.display("File is named: " + fileName);
+		V.display("File is created in: " + folderName);
+		V.display("File is of type: " + fileType);
+		V.display("Using the directory separator: " + directorySeparator);
+	}
+	public static void saveMealsToFile(String fileName, String fileType, String folderName, String directorySeparator) {
+		String relativePathName = folderName + directorySeparator + fileName + fileType; 
+		// 20171128_Meal + \\ + 20171128_MealDetails + .txt
+
+		try (FileWriter writer = new FileWriter(relativePathName); PrintWriter print = new PrintWriter(writer)) {
+			for (int i = 0; i < M.getSelectedMeals().size(); i++) {
+				print.println(M.getSelectedMeals().get(i).getName() + " - " + M.getSelectedMeals().get(i).getCalories());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		V.display("Meals saved to file: " + relativePathName);
 	}
 
 	public static ArrayList<Meal> getMenuMeals() {

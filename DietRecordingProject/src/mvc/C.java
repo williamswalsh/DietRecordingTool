@@ -27,11 +27,17 @@ public class C {
 				V.captureTypedInput();
 				if (V.getUserTypedInput().trim().toLowerCase().equals("y")) {
 
-					M.createFolder();
-
-					String fileName = M.getDateString() + "_MealDetails";
-//					M.createTextFile(fileName);
-//					M.printMealsToFile(M.getSelectedMeals(), fileName);
+					String todaysDate = M.getDateString();
+					
+					String folderName = todaysDate + "_Meal";
+					M.createFolderWithName(folderName);
+					
+					String fileType = ".txt";
+					String fileName = todaysDate + "_MealDetails";
+					String directorySeparator = "\\";		// Windows OS (Modify to detect correct separator -OS linux/unix/windows)
+					M.createFile(fileName, fileType, folderName, directorySeparator);
+					M.saveMealsToFile(fileName, fileType, folderName, directorySeparator);
+					
 					userHasNotEnteredCorrectInput = false;
 				} else if (V.getUserTypedInput().trim().toLowerCase().equals("n")) {
 					userHasNotEnteredCorrectInput = false;
@@ -68,7 +74,7 @@ public class C {
 				} else {
 					V.display(selectedMeal.getName() + " (" + selectedMeal.getCalories()
 							+ ") with your current calories: " + M.getSumOfCalories(M.getSelectedMeals())
-							+ " exceeds your max calories. It wasn't added.");
+							+ " exceeds your max calories. The meal wasn't added.");
 				}
 			}
 			V.display(M.getSumOfCalories(M.getSelectedMeals()) + " calories accumulated.\n");
@@ -100,10 +106,14 @@ public class C {
 
 	public static void processAsString() {
 		if (V.getUserTypedInput().trim().toLowerCase().equals("menu")) {
-			V.displayMeals(M.getMenuMeals());
+			V.displayMealsWithIndex(M.getMenuMeals());
 		} else if (V.getUserTypedInput().trim().toLowerCase().equals("selected")) {
-			V.displayMeals(M.getSelectedMeals());
-		} else if (V.getUserTypedInput().trim().toLowerCase().equals("exit")) {
+			V.displayMealsWithIndex(M.getSelectedMeals());
+		} else if (V.getUserTypedInput().trim().toLowerCase().equals("total")) {
+			V.display("" + M.getSumOfCalories(M.getSelectedMeals()));
+		}else if (V.getUserTypedInput().trim().toLowerCase().equals("options")) {
+			V.displayOptions();
+		}else if (V.getUserTypedInput().trim().toLowerCase().equals("exit")) {
 			C.exitingApp();
 		} else {
 			V.display("Incorrect string entered. Please try again.");
