@@ -1,4 +1,5 @@
 package mvc;
+
 import dao.Meal;
 
 import java.io.FileWriter;
@@ -36,11 +37,12 @@ public class M {
 	// M.createFolder();// Create folder >> name >> todays date + Meal
 	// M.createTextFile();// Create textfile >> name >> todays date +
 	// MealDetails 20171123
-	
+
 	/**
-	 * Method uses passed folderName string to create a folder within the root project folder.
-	 * If the folder exists already it reports this to the user.
-	 * If the folder doesn't exist already it create the folder and reports this to the user.
+	 * Method uses passed folderName string to create a folder within the root
+	 * project folder. If the folder exists already it reports this to the user. If
+	 * the folder doesn't exist already it create the folder and reports this to the
+	 * user.
 	 * 
 	 * @param folderName
 	 */
@@ -52,7 +54,8 @@ public class M {
 				Files.createDirectories(path);
 				V.display("Folder named: " + folderName + " was created.");
 			} catch (IOException e) { // How to handle this exception // Best recovery behaviour
-				// Possible exception -> user enters folderName which is invalid (contains illegal characters)
+				// Possible exception -> user enters folderName which is invalid (contains
+				// illegal characters)
 				e.printStackTrace();
 			}
 		} else {
@@ -60,27 +63,78 @@ public class M {
 		}
 	}
 
+	/**
+	 * @author William Walsh
+	 * 
+	 * This method creates a file with the name fileName, type fileType, inside the
+	 * folder folderName, using the directory separator directorySeperator
+	 * 
+	 * If the file exists already it reports this to the user and exits. If the file
+	 * doesn't exist already it creates the file and reports this to the user and
+	 * exits.
+	 * 
+	 * @exception IOException
+	 * If the file cannot be created it prints a stack trace.
+	 * 
+	 * @param fileName
+	 *            Name of file to be created without file Extension (not including
+	 *            .txt)
+	 * @param fileType
+	 *            File Extension of file e.g .txt, .c, .java
+	 * @param folderName
+	 *            Name of folder in which to create file
+	 * @param directorySeparator
+	 *            Directory Separator which is specific to current OS
+	 * @return void 
+	 */
 	public static void createFile(String fileName, String fileType, String folderName, String directorySeparator) {
-		String relativePathName = folderName + directorySeparator + fileName + fileType; 
-								// 20171128_Meal + \ + 20171128_MealDetails + .txt
-		
-		try (FileWriter writer = new FileWriter(relativePathName)) {
-		} catch (IOException e) {
-			e.printStackTrace();
+		String relativePathName = folderName + directorySeparator + fileName + fileType;
+		// 20171128_Meal + \ + 20171128_MealDetails + .txt
+
+		Path relativePath = Paths.get(relativePathName);
+
+		if (!Files.exists(relativePath)) {
+			try (FileWriter writer = new FileWriter(relativePathName)) {
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			V.display("File created: " + relativePathName);
+
+		} else {
+			V.display("File already exists: " + relativePathName);
 		}
-		V.display("File is named: " + fileName);
-		V.display("File is created in: " + folderName);
-		V.display("File is of type: " + fileType);
-		V.display("Using the directory separator: " + directorySeparator);
 		V.display("");
 	}
+	
+	
+	/**
+	 * @author William Walsh
+	 * 
+	 * Saves the meals selected by the user which are saved to the private M.selectedMeals ArrayList
+	 * to the File signified by the fileName, fileType, folderName and directoryExtension 
+	 * 
+	 * 
+	 * @exception IOException
+	 * Throws Exception if cannot create FileWriter to File or if cannot create PrintWriter to FileWriter
+	 * 
+	 * @param fileName
+	 *            Name of file to be created without file Extension (not including
+	 *            .txt)
+	 * @param fileType
+	 *            File Extension of file e.g .txt, .c, .java
+	 * @param folderName
+	 *            Name of folder in which to create file
+	 * @param directorySeparator
+	 *            Directory Separator which is specific to current OS
+	 */
 	public static void saveMealsToFile(String fileName, String fileType, String folderName, String directorySeparator) {
-		String relativePathName = folderName + directorySeparator + fileName + fileType; 
+		String relativePathName = folderName + directorySeparator + fileName + fileType;
 		// 20171128_Meal + \\ + 20171128_MealDetails + .txt
 
 		try (FileWriter writer = new FileWriter(relativePathName); PrintWriter print = new PrintWriter(writer)) {
 			for (int i = 0; i < M.getSelectedMeals().size(); i++) {
-				print.println(M.getSelectedMeals().get(i).getName() + " - " + M.getSelectedMeals().get(i).getCalories());
+				print.println(
+						M.getSelectedMeals().get(i).getName() + " - " + M.getSelectedMeals().get(i).getCalories());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
