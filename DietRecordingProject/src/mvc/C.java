@@ -41,6 +41,8 @@ public class C {
 					userHasNotEnteredCorrectInput = false;
 				} else if (V.getUserTypedInput().trim().toLowerCase().equals("n")) {
 					userHasNotEnteredCorrectInput = false;
+				} else {
+					V.display("Incorrect input, try again.");
 				}
 			}
 		}
