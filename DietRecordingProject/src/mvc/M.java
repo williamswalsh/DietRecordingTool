@@ -36,6 +36,14 @@ public class M {
 	// M.createFolder();// Create folder >> name >> todays date + Meal
 	// M.createTextFile();// Create textfile >> name >> todays date +
 	// MealDetails 20171123
+	
+	/**
+	 * Method uses passed folderName string to create a folder within the root project folder.
+	 * If the folder exists already it reports this to the user.
+	 * If the folder doesn't exist already it create the folder and reports this to the user.
+	 * 
+	 * @param folderName
+	 */
 	public static void createFolderWithName(String folderName) {
 		Path path = Paths.get(folderName);
 
@@ -44,6 +52,7 @@ public class M {
 				Files.createDirectories(path);
 				V.display("Folder named: " + folderName + " was created.");
 			} catch (IOException e) { // How to handle this exception // Best recovery behaviour
+				// Possible exception -> user enters folderName which is invalid (contains illegal characters)
 				e.printStackTrace();
 			}
 		} else {
