@@ -1,6 +1,11 @@
 package dao;
 
-
+/**
+ * 
+ * @author William Walsh
+ * @version %I%, %G%
+ * 
+ */
 public class Meal {
 	private String name;
 	private double calories;
