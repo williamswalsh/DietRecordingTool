@@ -2,9 +2,15 @@ package dao;
 
 /**
  * 
+ * This class represents a meal of food.
+ * This class is encapsulated.
+ * Its 2 members can be accessed/mutated by 
+ * using the corresponding getters and setters.
+ * 
  * @author William Walsh
  * @version 1.0
- * @since 
+ * @since 29/11/2017
+ * 
  */
 public class Meal {
 	private String name;
