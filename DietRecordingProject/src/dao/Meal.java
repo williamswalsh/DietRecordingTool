@@ -3,8 +3,8 @@ package dao;
 /**
  * 
  * @author William Walsh
- * @version %I%, %G%
- * 
+ * @version 1.0
+ * @since 
  */
 public class Meal {
 	private String name;
