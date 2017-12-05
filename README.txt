@@ -10,7 +10,7 @@ The user can select a meal option from the meal menu.
 
 
 
-There is the an output from the tool below.
+This is sample console output from the tool:
 
 *******************Welcome to Duke's 2000 Calorie Daily Diet*******************
 The diet plan doesn't allow you to exceed 2000 calories.
@@ -30,10 +30,25 @@ Menu:
 2		Lasagne - 500.0
 Enter Selection: 
  
+*******************************************************************************
+
 
 
 I/O:
+Sample Input with generated output.
 ********************************************************************************
+INPUT: 0
+OUTPUT: The meal "Beef Casserole" was added.
+
+
+INPUT: 1
+OUTPUT: The meal "Steak and Kidney Pie" was added.
+
+
+INPUT: 2
+OUTPUT: The meal "Lasagne" was added.
+
+
 INPUT: menu
 OUTPUT: 
 Menu:
@@ -51,16 +66,30 @@ Steak and Kidney Pie - 450.0
 Lasagne - 500.0
 
 
-INPUT: 0
-OUTPUT: The meal "Beef Casserole" was added.
-INPUT: 1
-OUTPUT: The meal "Steak and Kidney Pie" was added.
-INPUT: 2
-OUTPUT: The meal "Lasagne" was added.
+INPUT: total
+OUTPUT:
+Total: 
+700.0
 
 
-INPUT: selected
-OUTPUT:INPUT: selected
+INPUT: options
 OUTPUT:
-INPUT: selected
-OUTPUT:
+Options:
+********
+menu:		To view the menu
+selected:	To view the meals selected
+total:		To view Total calories selected
+options:	To view the options menu
+exit:		To exit.
+
+
+INPUT: exit
+OUTPUT: Would you like to save your entries to a text file? y/n
+   INPUT: y
+   OUTPUT:
+       Folder named: 2017115_Meal was created.
+       File created: 2017115_Meal\2017115_MealDetails.txt
+
+       Meals saved to file: 2017115_Meal\2017115_MealDetails.txt
+       Goodbye
+********************************************************************************
