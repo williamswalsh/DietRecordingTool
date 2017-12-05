@@ -3,9 +3,11 @@ package main;
 import mvc.M;
 import mvc.V;
 import mvc.C;
-// Change
 /**
  * Title: Duke’s 2000 Calorie Daily Diet
+ * 
+ * This is the Main Class of the DietRecording project.
+ * This class contains the main program flow.
  * 
  * @author William Walsh
  *
@@ -13,22 +15,27 @@ import mvc.C;
 public class Main {
 	public static void main(String[] args) {
 
-		M.retrieveMenuMeals(); // Initialization
+		M.retrieveMenuMeals(); // Initialization of the menuMeals ArrayList
 
 		V.displayTitleMenu();
-		V.displayMealsWithIndex(M.getMenuMeals()); // MVC not
-		// followed here V->M directly and not through C -> ASK PETE
+		
+		// Displays Menu Meals which are retrieved from Model by communicating with Controller.
+		V.displayMealsWithIndex(C.getMenuMeals()); 
 
+		// boolean variable to base a while loop on.
+		// if user doesn't want to play, this boolean will be changed to false 
+		// when the user enters the string exit, exiting the while loop.
 		boolean userWantsToPlay = true;
 		while (userWantsToPlay) {
 			V.captureTypedInput();
+
+			// Checks if input is an int
 			if (C.isTypedInputAnInt(V.getUserTypedInput())) {
 				C.processAsInt();
-			} else {
+			} else { // If input isn't an int
 				C.processAsString();
 			}
 		}
-
 	}
 }
 
@@ -43,15 +50,8 @@ public class Main {
  * which holds arraylist of Meals and processes them // Finds sum of calories //
  * Data Access Object
  * 
- * 
- * // Originating Value -> Buggy/ Any Effect?-> ? -> 999 -> To display the menu
- * -> // NB: Must not use this if its not initialized. Potential test before Use
- * // If final must initalize in constructor or must make Class non static an //
- * object // to have constructor....
- * 
  * // could do this in controller instance constructor -> controller as an
  * instance // (Singleton)
- * 
  * 
  * // public boolean isSumOfMealsWithinMax(ArrayList<Meal> selectedMeals, int //
  * indexOfSelectedMeal) { // return isWithinMax; // } // public static boolean

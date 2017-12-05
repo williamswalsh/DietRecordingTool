@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This class is the View of the Model-View-Controller paradigm. All the
- * interaction with the application user is contained in this class. This class
- * also communicates with the Controller named C.
+ * This class is the View of the Model-View-Controller paradigm. 
+ * This class represents the GUI of the application.
+ * All the interaction with the user is contained in this class. 
+ * This class communicates the user input to the Controller.
+ * The Controller passes data to this class to be presented to user.
  * 
  * This class contains all the methods to show data to the application user and
  * it contains all the methods to capture data from the user.
@@ -33,10 +35,6 @@ public class V {
 	 * This method prints the argument String "message" to the standard output
 	 * stream.
 	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
-	 * 
 	 * @param message
 	 *            The String to be printed to the standard output stream.
 	 */
@@ -46,10 +44,6 @@ public class V {
 
 	/**
 	 * This method prints the title to the standard output stream.
-	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
 	 * 
 	 */
 	public static void displayTitle() {
@@ -62,10 +56,6 @@ public class V {
 	 * This method prints the options that can be chosen to the standard output
 	 * stream. The options are Strings that the user can entered at the console to
 	 * interact with the tool.
-	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
 	 * 
 	 */
 	public static void displayOptions() {
@@ -82,10 +72,6 @@ public class V {
 	 * This method prints the title and options by calling the methods that print to
 	 * the standard output stream.
 	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
-	 * 
 	 */
 	public static void displayTitleMenu() {
 		displayTitle();
@@ -97,10 +83,6 @@ public class V {
 	 * the ArrayList and prints an index value that can be used to select a meal,
 	 * the meals name and the amount of calories of the meal to the standard output
 	 * stream.
-	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
 	 * 
 	 * @param meals
 	 *            The arraylist of meals that you want to print the data of.
@@ -115,10 +97,6 @@ public class V {
 	 * This method accepts an ArrayList of Meal objects. The method iterates through
 	 * the ArrayList and prints each meals name and calories to the standard output
 	 * stream.
-	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
 	 * 
 	 * @param meals
 	 *            The arraylist of meals that you want to print the data of.
@@ -136,10 +114,6 @@ public class V {
 	 * the keyboard. The String data is stored as a static String called
 	 * userTypedInput.
 	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
-	 * 
 	 */
 	public static void captureTypedInput() {
 		System.out.print("Enter Selection: ");
@@ -149,10 +123,6 @@ public class V {
 	/**
 	 * This method returns the private String userTypedInput. This method allows
 	 * access to the private userTypedInput String outside this class.
-	 * 
-	 * @author William Walsh
-	 * @version 1.0
-	 * @since 29/11/2017
 	 * 
 	 * @return The string that was typed by user and captured by the
 	 *         captureTypedInput method.
