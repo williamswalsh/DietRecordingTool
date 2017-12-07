@@ -106,11 +106,12 @@ exit:		To exit.
 
 INPUT: exit
 OUTPUT: Would you like to save your entries to a text file? y/n
-   INPUT: y
-   OUTPUT:
-       Folder named: 2017115_Meal was created.
-       File created: 2017115_Meal\2017115_MealDetails.txt
+   
+INPUT: y
+OUTPUT:
+Folder named: 2017115_Meal was created.
+File created: 2017115_Meal\2017115_MealDetails.txt
 
-       Meals saved to file: 2017115_Meal\2017115_MealDetails.txt
-       Goodbye
+Meals saved to file: 2017115_Meal\2017115_MealDetails.txt
+Goodbye
 ********************************************************************************
