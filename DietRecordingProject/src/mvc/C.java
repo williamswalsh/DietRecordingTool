@@ -7,7 +7,7 @@ import dao.Meal;
 /**
  * This class is the Controller of the Model-View-Controller paradigm. This
  * class contains the business logic for the program. This class receives and
- * processes user input from the View. This class accesses & modifies data by
+ * processes user input from the View. This class accesses and modifies data by
  * communicating with the Model.
  * 
  * 
