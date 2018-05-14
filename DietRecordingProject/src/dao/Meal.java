@@ -2,7 +2,7 @@ package dao;
 
 /**
  * 
- * This class represents a meal of food.
+ * This class represents a single meal.
  * This class is encapsulated.
  * Its 2 members can be accessed/mutated by 
  * using the corresponding getters and setters.
