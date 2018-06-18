@@ -1,8 +1,6 @@
 Title: Duke’s 2000 Calorie Daily Diet
 *******************************************************************************
-This is a Diet recording tool.
-
-It is a console app that allows you to select meals from a menu.
+This is a Diet recording tool that allows you to select meals from a menu.
 The menu of meals is enumerated at runtime.
 The user can select a tool option(menu,selected,total,options & exit)
 OR
